@@ -1,0 +1,19 @@
+{
+  "name": "walkingbass",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-jest": "^24.8.0",
+    "parcel-bundler": "^1.12.3"
+  },
+  "dependencies": {
+    "jest": "^24.8.0",
+    "save-dev": "^2.0.0"
+  }
+}
