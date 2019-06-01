@@ -11,11 +11,11 @@ const noteComparator = (testPitch, comparePitch) => {
     return 0;
   }
   // if octaves are equal, compare note values
-  if (testPitch[1] === comparePitch[1]) {
-    return getNoteValueIndexedToC(testPitch[0]) > getNoteValueIndexedToC(comparePitch[0]) ? 1 : -1;
+  if (testPitch[testPitch.length - 1] === comparePitch[comparePitch.length - 1]) {
+    return getNoteValueIndexedToC(testPitch.replace(/\d/, '')) > getNoteValueIndexedToC(comparePitch.replace(/\d/, '')) ? 1 : -1;
   }
   // if octaves are not equal, compare octaves
-  return testPitch[1] > comparePitch[1] ? 1 : -1;
+  return testPitch[testPitch.length - 1] > comparePitch[comparePitch.length - 1] ? 1 : -1;
 };
 
 export const isPitchWithinBassRange = (pitch) => {
@@ -33,3 +33,5 @@ export const getPitchesWithinBassRangeByNoteName = (noteName) => {
   } while (++octave <= parseInt(UPPER_BOUNDING_PITCH[1]));
   return pitches;
 }
+
+export const getLowestPitchWithinBassRangeByNoteName = (noteName) => getPitchesWithinBassRangeByNoteName(noteName).shift();
