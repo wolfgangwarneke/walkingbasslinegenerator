@@ -47,8 +47,8 @@ export const getScaleValuesIndexedToC = scaleFormula => (noteName) => {
 };
 export const getMajorScaleValuesIndexedToC = getScaleValuesIndexedToC(majorScaleFormula);
 
-export const getTriadValuesFromScaleStep = scale => step => { // zero-indexed
-  const scaleLength = scale.length
+export const getTriadValuesFromScaleStep = scale => (step) => { // zero-indexed
+  const scaleLength = scale.length;
   return [
     scale[step],
     scale[(step + 2) % scaleLength],
