@@ -1,7 +1,8 @@
 import {
   isPitchWithinBassRange,
   LOWER_BOUNDING_PITCH,
-  UPPER_BOUNDING_PITCH
+  UPPER_BOUNDING_PITCH,
+  getPitchesWithinBassRangeByNoteName
 } from './bassRange';
 
 // test lower range
@@ -28,3 +29,13 @@ test('"G3" should be false (is within range)', () => {
 test('"G4" should be false (is not within range)', () => {
   expect(isPitchWithinBassRange('G4')).toBe(false);
 });
+
+// get all pitches of note within bass range
+test(`"E" should return an array of ['E1', 'E2', 'E3']`, () => {
+  const expected = ['E1', 'E2', 'E3'];
+  expect(getPitchesWithinBassRangeByNoteName('E')).toEqual(expect.arrayContaining(expected));
+})
+test(`"C" should return an array of ['C2', 'C3']`, () => {
+  const expected = ['C2', 'C3'];
+  expect(getPitchesWithinBassRangeByNoteName('C')).toEqual(expect.arrayContaining(expected));
+})

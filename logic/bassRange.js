@@ -21,3 +21,15 @@ const noteComparator = (testPitch, comparePitch) => {
 export const isPitchWithinBassRange = (pitch) => {
   return noteComparator(pitch, LOWER_BOUNDING_PITCH) !== -1 && noteComparator(pitch, UPPER_BOUNDING_PITCH) !== 1;
 }
+
+export const getPitchesWithinBassRangeByNoteName = (noteName) => {
+  const pitches = [];
+  let octave = LOWER_BOUNDING_PITCH[1];
+  do {
+    const pitch = `${noteName}${octave}`;
+    if (isPitchWithinBassRange(pitch)) {
+      pitches.push(pitch);
+    }
+  } while (++octave <= parseInt(UPPER_BOUNDING_PITCH[1]));
+  return pitches;
+}
