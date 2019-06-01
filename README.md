@@ -9,3 +9,5 @@ This project is projected to be completed in four stages:
 - stylistic randomization and composition of basslines
 - user interface
 - demo audio synthesis
+
+Current status: first stage helpers are in progress for basic note systems and relation to the bass instrument range
