@@ -10,4 +10,4 @@ This project is projected to be completed in four stages:
 - user interface
 - demo audio synthesis
 
-Current status: first stage helpers are in progress for basic note systems and relation to the bass instrument range
+Current status: first stage - Building-block helpers are in complete for basic note systems and relation to the bass instrument range. A messy implentation which outputs triads over a 12-bar blues has been achieved, but will need to be redesigned.
