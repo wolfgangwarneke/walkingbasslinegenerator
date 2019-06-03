@@ -55,3 +55,12 @@ export const getTriadValuesFromScaleStep = scale => (step) => { // zero-indexed
     scale[(step + 4) % scaleLength]
   ];
 };
+
+export const translateNoteValueToNoteName = (noteValue, preference = 'flat') => {
+  const notes = 'C-D-EF-G-A-B';
+  let noteName = notes[noteValue];
+  if (noteName === '-') {
+    noteName = /b|flat/i.test(preference) ? `${notes[(noteValue + 1) % 12]}b` : `${notes[noteValue-1]}#`; 
+  }
+  return noteName;
+}

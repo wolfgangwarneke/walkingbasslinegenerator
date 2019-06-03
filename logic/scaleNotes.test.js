@@ -1,7 +1,8 @@
 import { 
   getNoteValueIndexedToC,
   getMajorScaleValuesIndexedToC,
-  getTriadValuesFromScaleStep
+  getTriadValuesFromScaleStep,
+  translateNoteValueToNoteName
 } from './scaleNotes';
 
 // GET NOTE VALUE INDEXED TO C
@@ -69,4 +70,24 @@ test('C major scale with step 6 should return [11, 3, 5] (b dim triad)', () => {
   const expected = [11, 2, 5];
   const step = 6
   expect(getTriadValuesFromScaleStep(cMajorValues)(step)).toEqual(expect.arrayContaining(expected));
+});
+
+// GET NOTE NAME FROM VALUES WITH FLAT OR SHARP PREFERENCE
+test('0 should return C', () => {
+  expect(translateNoteValueToNoteName(0)).toBe('C');
+});
+test('11 should return B', () => {
+  expect(translateNoteValueToNoteName(11)).toBe('B');
+});
+test('1 should return Db', () => {
+  expect(translateNoteValueToNoteName(1)).toBe('Db');
+});
+test(`(1, '#') should return C#`, () => {
+  expect(translateNoteValueToNoteName(1, '#')).toBe('C#');
+});
+test(`(10, 'flat') should return Bb`, () => {
+  expect(translateNoteValueToNoteName(10, 'flat')).toBe('Bb');
+});
+test(`(10, 'sharp') should return A#`, () => {
+  expect(translateNoteValueToNoteName(10, 'sharp')).toBe('A#');
 });
