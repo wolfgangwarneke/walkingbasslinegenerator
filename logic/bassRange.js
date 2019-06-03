@@ -6,7 +6,7 @@ import { getNoteValueIndexedToC } from './scaleNotes';
 export const LOWER_BOUNDING_PITCH = 'E1'; // open E string
 export const UPPER_BOUNDING_PITCH = 'G3'; // octave on G string
 
-const noteComparator = (testPitch, comparePitch) => {
+const pitchComparator = (testPitch, comparePitch) => {
   if (testPitch === comparePitch) {
     return 0;
   }
@@ -19,7 +19,7 @@ const noteComparator = (testPitch, comparePitch) => {
 };
 
 export const isPitchWithinBassRange = (pitch) => {
-  return noteComparator(pitch, LOWER_BOUNDING_PITCH) !== -1 && noteComparator(pitch, UPPER_BOUNDING_PITCH) !== 1;
+  return pitchComparator(pitch, LOWER_BOUNDING_PITCH) !== -1 && pitchComparator(pitch, UPPER_BOUNDING_PITCH) !== 1;
 }
 
 export const getPitchesWithinBassRangeByNoteName = (noteName) => {
