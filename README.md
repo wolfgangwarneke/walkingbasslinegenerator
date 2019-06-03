@@ -21,6 +21,7 @@ The simple name of a note with no consideration of pitch or octave.
 ### Note value (relative to C)
 ex. 11
 For internal logic we can keep track of various patterns numerically by converting *note names* into *note values*. Values are determined by how many semitones a note by a name is referenced above C. C is 0 since C is zero steps above C.
+
 | Note | Semitones Above C |
 | ---- | ---- |
 | C | 0 |
